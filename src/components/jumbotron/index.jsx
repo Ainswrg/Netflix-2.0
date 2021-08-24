@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Inner, Item, Title, SubTitle, Pane, Image, Video } from './styles/jumbotron';
+import { Container, Inner, Item, Title, SubTitle, Pane, Image, Video, Flex } from './styles/jumbotron';
 
 export default function Jumbotron({ children, direction = 'row', ...props }) {
   return (
@@ -28,6 +28,11 @@ Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...props }) {
 Jumbotron.Image = function JumbotronImage({ ...props }) {
   return <Image {...props} />;
 };
+
 Jumbotron.Video = function JumbotronVideo({ ...props }) {
   return <Video autoPlay loop muted playsInline {...props} />;
+};
+
+Jumbotron.Flex = function JumbotronFlex({ children, ...props }) {
+  return <Flex {...props}> { children } </Flex>;
 };
