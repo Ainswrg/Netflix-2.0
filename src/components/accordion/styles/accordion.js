@@ -41,13 +41,13 @@ export const Header = styled.div`
   }
 
   &::before {
-    top: ${(props) => (props.clicked ? '1.5' : '2.3rem')};
-    transform: ${(props) => (props.clicked ? 'rotate(90deg)' : 'rotate(180deg)')};
+    top: ${({ clicked }) => (clicked ? '1.5' : '2.3rem')};
+    transform: ${({ clicked }) => (clicked ? 'rotate(410deg)' : 'rotate(180deg)')};
   }
 
   &::after {
-    top: ${(props) => (props.clicked ? '1.2' : '2.3rem')};
-    transform: ${(props) => (props.clicked ? 'rotate(0deg)' : 'rotate(90deg)')};
+    top: ${({ clicked }) => (clicked ? '1.2' : '2.3rem')};
+    transform: ${({ clicked }) => (clicked ? 'rotate(310deg)' : 'rotate(90deg)')};
   }
 `;
 
@@ -88,7 +88,9 @@ export const Title = styled.h1`
 export const Item = styled.div`
   color: white;
   margin-bottom: 10px;
+  margin: 1px auto;
   max-width: 670px;
+  width: 100%;
 
   &:first-of-type {
     margin-top: 3em;
