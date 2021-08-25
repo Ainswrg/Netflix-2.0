@@ -20,29 +20,38 @@ export const Input = styled.input`
   padding: 10px;
   height: 70px;
   box-sizing: border-box;
+  font-size: 16px;
+  
+  &:focus {
+    border: solid 1px #8c8c8c;
+    outline: 1px solid #0071EB;
+  }
+
+  @media (max-width: 1000px) {
+    height: 50px;
+  }
 `;
 
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  height: 70px;
   background: #e50914;
   color: white;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   padding: 0 32px;
   font-size: 26px;
-  border: 0;
   cursor: pointer;
+  border: none;
 
   &:hover {
     background: #f40612;
   }
 
   @media (max-width: 1000px) {
-    height: 50px;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 20px;
-    font-weight: bold;
+    padding: 13px 16px;
+    border-radius: 2.5px;
   }
 
   img {
