@@ -3,7 +3,8 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 
 export const Background = styled.div`
   position: relative;
-  height: 100%;
+  height: 900px;
+  border-bottom: 8px rgb(69, 69, 69) solid;
   background-size: cover;
   background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover
     no-repeat;

@@ -2,7 +2,8 @@ import styled from 'styled-components/macro';
 
 export const Container = styled.div`
   display: flex;
-  border-bottom: 8px solid #222;
+  border-top: 8px rgb(69, 69, 69) solid;
+  border-bottom: 8px rgb(69, 69, 69) solid;
 `;
 
 export const Inner = styled.div`

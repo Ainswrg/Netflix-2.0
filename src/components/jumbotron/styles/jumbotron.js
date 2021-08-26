@@ -2,10 +2,14 @@ import styled from 'styled-components/macro';
 
 export const Item = styled.div`
   display: flex;
-  border-bottom: 8px rgb(69, 69, 69) solid;
+  border-top: 8px rgb(69, 69, 69) solid;
   padding: 50px 5%;
   color: white;
   overflow: hidden;
+
+  &:first-of-type{
+    border: none;
+  }
 `;
 
 export const Inner = styled.div`

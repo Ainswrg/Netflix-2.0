@@ -9,7 +9,6 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   color: white;
-  border-bottom: 8px solid #222;
   padding: 165px 45px;
 `;
 
