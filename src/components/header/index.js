@@ -1,5 +1,5 @@
 import { Link as ReactRouterLink } from 'react-router-dom';
-import { Background, ButtonLink, Container, Logo } from './styles/header';
+import { Background, ButtonLink, Container, Logo, Navbar, Gradient } from './styles/header';
 
 export default function Header({ bg = true, children, ...props }) {
   return bg ? <Background {...props}>{children}</Background> : children;
@@ -19,4 +19,12 @@ Header.Logo = function HeaderLogo({ to, ...props }) {
 
 Header.ButtonLink = function HeaderButtonLink({ children, ...props }) {
   return <ButtonLink {...props}>{children}</ButtonLink>;
+};
+
+Header.Navbar = function HeaderNavbar({ children, ...props }) {
+  return <Navbar {...props}> {children} </Navbar>;
+};
+
+Header.Gradient = function HeaderGradient({ ...props }) {
+  return <Gradient {...props} />;
 };

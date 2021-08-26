@@ -2,6 +2,8 @@ import styled from 'styled-components/macro';
 
 export const Container = styled.div`
   display: flex;
+  z-index: 1;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
