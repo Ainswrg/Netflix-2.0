@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FirebaseContext } from '../context/firebase';
@@ -21,9 +21,10 @@ const schema = yup.object().shape({
 const SignIn = React.forwardRef((props, ref) => {
   const { auth, isAuth, signIn } = useContext(FirebaseContext);
   const {
-    register,
     formState: { errors },
     handleSubmit,
+    reset,
+    control,
   } = useForm({ resolver: yupResolver(schema) });
 
   const history = useHistory();
@@ -34,6 +35,7 @@ const SignIn = React.forwardRef((props, ref) => {
         history.push(ROUTES.BROWSE);
       }
     });
+    reset({ email: '', password: '' });
   };
 
   return (
@@ -41,17 +43,26 @@ const SignIn = React.forwardRef((props, ref) => {
       <HeaderContainer>
         <Form>
           <Form.Title>Sign In</Form.Title>
-          {(errors.email && <Form.Error>{errors.email?.message}</Form.Error>)
-            || (errors.password && <Form.Error>{errors.password?.message}</Form.Error>)}
+          {
+            // eslint-disable-next-line operator-linebreak
+            (errors.email && <Form.Error>{errors.email?.message}</Form.Error>) ||
+              (errors.password && <Form.Error>{errors.password?.message}</Form.Error>)
+          }
           ;
           <Form.Base onSubmit={handleSubmit(onSubmit)}>
-            <Form.Input {...register('email', { required: true })} ref={ref} type="email" placeholder="Email address" />
-            <Form.Input
-              {...register('password', { required: true })}
-              ref={ref}
-              type="password"
-              placeholder="Password"
-              autocomplete="off"
+            <Controller
+              render={({ field }) => <Form.Input {...field} placeholder="Email address" type="email" ref={ref} />}
+              name="email"
+              control={control}
+              rules={{ required: true }}
+              defaultValue=""
+            />
+            <Controller
+              render={({ field }) => <Form.Input {...field} placeholder="Password" type="password" ref={ref} />}
+              name="password"
+              control={control}
+              rules={{ required: true }}
+              defaultValue=""
             />
             <Form.Submit type="submit">Sign In</Form.Submit>
           </Form.Base>
