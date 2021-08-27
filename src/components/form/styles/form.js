@@ -73,6 +73,10 @@ export const Input = styled.input`
   &last-of-type {
     margin-bottom: 30px;
   }
+
+  &:focus {
+    outline: 1px solid #0071EB;
+  }
 `;
 
 export const Submit = styled.button`

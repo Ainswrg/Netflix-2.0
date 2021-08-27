@@ -1,34 +1,39 @@
-import { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { FirebaseContext } from '../context/firebase';
 import { HeaderContainer } from '../containers/Header';
 import { FooterContainer } from '../containers/Footer';
 import { Form } from '../components';
 import * as ROUTES from '../constants/routes';
 
-export default function SignIn() {
+const schema = yup.object().shape({
+  email: yup.string().email('Please enter a valid email address').required(),
+  password: yup
+    .string()
+    .min(4, 'Your password must contain between 4 and 60 characters.')
+    .max(60, 'Your password must contain between 4 and 60 characters.')
+    .required(),
+});
+
+const SignIn = React.forwardRef((props, ref) => {
+  const { auth, isAuth, signIn } = useContext(FirebaseContext);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ resolver: yupResolver(schema) });
+
   const history = useHistory();
-  const { firebase } = useContext(FirebaseContext);
-  const [emailAddress, setEmailAddress] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const isInvalid = password === '' || emailAddress === '';
-
-  console.log(firebase);
-  const handleSignIn = (e) => {
-    e.preventDefault();
-
-    firebase.auth
-      .signInWithEmailAndPassword(emailAddress, password)
-      .then(() => {
+  const onSubmit = (data) => {
+    signIn(auth, data.email, data.password);
+    isAuth(auth, (user) => {
+      if (user) {
         history.push(ROUTES.BROWSE);
-      })
-      .catch((error) => {
-        setEmailAddress('');
-        setPassword('');
-        setError(error.message);
-      });
+      }
+    });
   };
 
   return (
@@ -36,26 +41,20 @@ export default function SignIn() {
       <HeaderContainer>
         <Form>
           <Form.Title>Sign In</Form.Title>
-          {error && <Form.Error>{error}</Form.Error>}
-
-          <Form.Base onSubmit={handleSignIn} method="POST">
+          {(errors.email && <Form.Error>{errors.email?.message}</Form.Error>)
+            || (errors.password && <Form.Error>{errors.password?.message}</Form.Error>)}
+          ;
+          <Form.Base onSubmit={handleSubmit(onSubmit)}>
+            <Form.Input {...register('email', { required: true })} ref={ref} type="email" placeholder="Email address" />
             <Form.Input
-              placeholder="Email address"
-              value={emailAddress}
-              onChange={({ target }) => setEmailAddress(target.value)}
-            />
-            <Form.Input
+              {...register('password', { required: true })}
+              ref={ref}
               type="password"
-              value={password}
               placeholder="Password"
               autocomplete="off"
-              onChange={({ target }) => setPassword(target.value)}
             />
-            <Form.Submit disabled={isInvalid} type="submit">
-              Sign In
-            </Form.Submit>
+            <Form.Submit type="submit">Sign In</Form.Submit>
           </Form.Base>
-
           <Form.Text>
             New to Netflix? <Form.Link to="/signup">Sign Up Now!</Form.Link>
           </Form.Text>
@@ -67,4 +66,6 @@ export default function SignIn() {
       <FooterContainer />
     </>
   );
-}
+});
+
+export default SignIn;
