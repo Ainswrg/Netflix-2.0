@@ -11,7 +11,6 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
         }
 
         if (user) {
-          console.log('Im a user! -', loggedInPath);
           return <Redirect to={{ pathname: loggedInPath }} />;
         }
         return null;
@@ -25,7 +24,6 @@ export function ProtectedRoute({ user, children, ...rest }) {
     <Route
       {...rest}
       render={({ location }) => {
-        console.log('user', user);
         if (user) {
           return children;
         }
