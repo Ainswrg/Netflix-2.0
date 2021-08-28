@@ -45,8 +45,8 @@ const SignIn = React.forwardRef((props, ref) => {
           <Form.Title>Sign In</Form.Title>
           {
             // eslint-disable-next-line operator-linebreak
-            (errors.email && <Form.Error>{errors.email?.message}</Form.Error>) ||
-              (errors.password && <Form.Error>{errors.password?.message}</Form.Error>)
+            (errors.email && <Form.Error>{errors.email?.message}</Form.Error>)
+            || (errors.password && <Form.Error>{errors.password?.message}</Form.Error>)
           }
           ;
           <Form.Base onSubmit={handleSubmit(onSubmit)}>
