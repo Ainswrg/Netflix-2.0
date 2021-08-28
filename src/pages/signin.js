@@ -19,7 +19,7 @@ const schema = yup.object().shape({
 });
 
 const SignIn = React.forwardRef((props, ref) => {
-  const { auth, isAuth, signIn } = useContext(FirebaseContext);
+  const { auth, signIn } = useContext(FirebaseContext);
   const {
     formState: { errors },
     handleSubmit,
@@ -30,7 +30,7 @@ const SignIn = React.forwardRef((props, ref) => {
   const history = useHistory();
   const onSubmit = (data) => {
     signIn(auth, data.email, data.password);
-    isAuth(auth, (user) => {
+    auth.onAuthStateChanged(auth, (user) => {
       if (user) {
         history.push(ROUTES.BROWSE);
       }
