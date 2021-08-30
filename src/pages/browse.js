@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SelectProfileContainer } from '../containers/Profiles';
 import { FirebaseContext } from '../context/firebase';
+import { Header, Loading } from '../components';
 
 export default function Browse() {
   const [profile, setProfile] = useState({});
@@ -9,13 +10,20 @@ export default function Browse() {
   const user = auth.currentUser || {};
 
   useEffect(() => {
-    console.log('profile', profile);
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   }, [profile.displayName]);
 
   return (
-    <SelectProfileContainer user={user} setProfile={setProfile} />
+    // eslint-disable-next-line no-nested-ternary
+    profile.displayName
+      ? (
+        <>
+          {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
+          <Header src="joker1"><p>Hello</p></Header>
+        </>
+      )
+      : (<SelectProfileContainer user={user} setProfile={setProfile} />)
   );
 }
