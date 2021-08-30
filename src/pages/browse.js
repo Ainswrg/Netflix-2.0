@@ -8,6 +8,7 @@ import logo from '../logo.svg';
 export default function Browse() {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
   const { auth, signOut } = useContext(FirebaseContext);
   const user = auth.currentUser || {};
 
@@ -32,6 +33,9 @@ export default function Browse() {
             </Header.Group>
 
             <Header.Group>
+              <Header.Group>
+                <Header.SearchTerm searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+              </Header.Group>
               <Header.Profile>
                 <Header.Picture src={user.photoURL} />
 
@@ -57,6 +61,7 @@ export default function Browse() {
               em...You...YouLorem...Lorem...You...Lorem...You...YouLore
               m...Lorem...You...Lorem...You...YouLorem...Lorem...Y ou...Lorem...You...You
             </Header.Text>
+            <Header.PlayButton>Play</Header.PlayButton>
           </Header.Feature>
         </Header>
       </>
