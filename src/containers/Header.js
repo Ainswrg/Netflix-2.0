@@ -26,8 +26,8 @@ export function HeaderContainer({ children }) {
           <Header.Logo to={ROUTES.HOME} alt="Netflix" src={logo} />
           <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
         </Header.Navbar>
+        <Header.Gradient />
       </Header.Frame>
-      <Header.Gradient />
       {children}
     </Header>
   );

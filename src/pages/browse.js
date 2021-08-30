@@ -42,7 +42,7 @@ export default function Browse() {
                   </Header.Group>
 
                   <Header.Group>
-                    <Header.TextLink>Sign out</Header.TextLink>
+                    <Header.TextLink onClick={() => signOut(auth)}>Sign out</Header.TextLink>
                   </Header.Group>
                 </Header.Dropdown>
               </Header.Profile>
