@@ -53,7 +53,6 @@ const SignUp = forwardRef((props, ref) => {
       });
 
     reset({ firstName: '', email: '', password: '' });
-    console.log('data', data);
   };
   return (
     <>

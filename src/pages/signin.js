@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
@@ -20,6 +20,7 @@ const schema = yup.object().shape({
 
 const SignIn = React.forwardRef((props, ref) => {
   const { auth, signIn } = useContext(FirebaseContext);
+  const [error, setError] = useState('');
   const {
     formState: { errors },
     handleSubmit,
@@ -29,12 +30,17 @@ const SignIn = React.forwardRef((props, ref) => {
 
   const history = useHistory();
   const onSubmit = (data) => {
-    signIn(auth, data.email, data.password);
-    auth.onAuthStateChanged(auth, (user) => {
-      if (user) {
-        history.push(ROUTES.BROWSE);
-      }
-    });
+    signIn(auth, data.email, data.password)
+      .then((userCredential) => {
+        // eslint-disable-next-line prefer-destructuring
+        const user = userCredential.user;
+        if (user) history.push(ROUTES.BROWSE);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+
     reset({ email: '', password: '' });
   };
 
@@ -43,11 +49,12 @@ const SignIn = React.forwardRef((props, ref) => {
       <HeaderContainer>
         <Form>
           <Form.Title>Sign In</Form.Title>
-          {
-            // eslint-disable-next-line operator-linebreak
-            (errors.email && <Form.Error>{errors.email?.message}</Form.Error>)
-            || (errors.password && <Form.Error>{errors.password?.message}</Form.Error>)
-          }
+          {/* eslint-disable */}
+            {(errors.firstName && <Form.Error>{errors.email?.firstName}</Form.Error>) ||
+            (errors.email && <Form.Error>{errors.email?.message}</Form.Error>) ||
+            (errors.password && <Form.Error>{errors.password?.message}</Form.Error>) ||
+            (error && <Form.Error>{error}</Form.Error>)}
+          {/* eslint-enable */}
           ;
           <Form.Base onSubmit={handleSubmit(onSubmit)}>
             <Controller
