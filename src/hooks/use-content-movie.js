@@ -1,23 +1,24 @@
 import { useState, useEffect } from 'react';
 import axios from '../lib/axios';
-import { requests } from '../lib/Requests';
+import { requestsFilms } from '../lib/Requests';
 
-export const useContentMovie = (targetUrl) => {
+export const useContentMovie = (fetchUrl) => {
   const [movies, setMovies] = useState([]);
+  const [requests, setRequest] = useState(requestsFilms);
 
-  const target = targetUrl || requests.fetchNetflixOriginals;
+  const target = fetchUrl || requests.fetchTrending;
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(target);
-      const result = targetUrl ? request.data.results : request.data.results[Math.floor(Math.random() * request.data.results.length - 1)];
+      const result = fetchUrl ? request.data.results : request.data.results[Math.floor(Math.random() * request.data.results.length - 1)];
 
       setMovies(result);
       return request;
     }
 
     fetchData();
-  }, [targetUrl]);
+  }, [fetchUrl]);
 
   return movies;
 };
