@@ -4,8 +4,10 @@ import styled from 'styled-components/macro';
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
-  background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover
-    no-repeat;
+
+  background: url(${({ src }) => (src ? `https://image.tmdb.org/t/p/original/${src}` : '../images/misc/home-bg.jpg')});
+  background-position: center center no-repeat;
+  background-size: cover;
 
   @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none`}
