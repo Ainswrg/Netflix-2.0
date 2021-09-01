@@ -79,7 +79,7 @@ export default function Browse() {
           {slideRows.map((categories) => (
             <Card key={`${category}-${categories.title.toLowerCase()}`}>
               <Card.Title>{categories.title}</Card.Title>
-              <Row fetchUrl={categories.fetchUrl} isLargeRow={categories.isLargeRow} />
+              <Card.Row fetchUrl={categories.fetchUrl} isLargeRow={categories.isLargeRow} />
             </Card>
           ))}
         </Card.Group>
