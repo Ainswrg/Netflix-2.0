@@ -6,6 +6,7 @@ import {
   ButtonLink,
   Container,
   Dropdown,
+  FadeBottom,
   Feature,
   FeatureCallOut,
   Gradient,
@@ -102,4 +103,8 @@ Header.Navbar = function HeaderNavbar({ children, ...props }) {
 
 Header.Gradient = function HeaderGradient({ ...props }) {
   return <Gradient {...props} />;
+};
+
+Header.FadeBottom = function HeaderFadeBottom({ ...props }) {
+  return <FadeBottom {...props} />;
 };
