@@ -1,4 +1,4 @@
-import { requestsFilms } from '../lib/Requests';
+import { requestsFilms, requestsTV } from '../lib/Requests';
 
 // const requests = requestsFilms;
 
@@ -7,16 +7,34 @@ export const selectionFilter = (target) => {
 
   const films = [
     { title: 'Trending now', fetchUrl: requestsFilms.fetchTrending, isLargeRow: true },
-    { title: 'Top Rated', fetchUrl: requestsFilms.fetchTopRated },
     { title: 'Action Movies', fetchUrl: requestsFilms.fetchActionMovies },
+    { title: 'Animation Movies', fetchUrl: requestsFilms.fetchAnimationMovies },
+    { title: 'Thriller Movies', fetchUrl: requestsFilms.fetchThrillerMovies },
     { title: 'Comedy Movies', fetchUrl: requestsFilms.fetchComedyMovies },
+    { title: 'Top Rated', fetchUrl: requestsFilms.fetchTopRated },
     { title: 'Horror Movies', fetchUrl: requestsFilms.fetchHorrorMovies },
     { title: 'Romance Movies', fetchUrl: requestsFilms.fetchRomanceMovies },
     { title: 'Documentaries', fetchUrl: requestsFilms.fetchDocumentaries },
   ];
 
+  const TV = [
+    { title: 'Netflix originals', fetchUrl: requestsTV.fetchNetflixOriginals, isLargeRow: true },
+    { title: 'Trending now', fetchUrl: requestsTV.fetchTrending },
+    { title: 'Top Rated', fetchUrl: requestsTV.fetchTopRated },
+    { title: 'Action & Adventure', fetchUrl: requestsTV.fetchActionTV },
+    { title: 'Animation', fetchUrl: requestsTV.fetchAnimationTV },
+    { title: 'Mystery', fetchUrl: requestsTV.fetchMysteryTV },
+    { title: 'Comedy', fetchUrl: requestsTV.fetchComedyTV },
+    { title: 'Crime', fetchUrl: requestsTV.fetchCrimeTV },
+    { title: 'Documentary', fetchUrl: requestsTV.fetchDocumentaries },
+  ];
+
   if (target === 'Films') {
     result = films;
+  }
+
+  if (target === 'TV') {
+    result = TV;
   }
   return result;
 };
