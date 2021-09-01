@@ -4,9 +4,8 @@ import { Card, Header, Loading } from '../components';
 import * as ROUTES from '../constants/routes';
 import { SelectProfileContainer } from '../containers/Profiles';
 import { FirebaseContext } from '../context/firebase';
-import { useContentMovie } from '../hooks';
+import { useBannerMovie } from '../hooks';
 import logo from '../logo.svg';
-import Row from '../Row';
 import { selectionFilter } from '../utils/selection-filter';
 
 export default function Browse() {
@@ -18,7 +17,7 @@ export default function Browse() {
   const [slideRows, setSlideRows] = useState([]);
   const user = auth.currentUser || {};
   const movieArray = selectionFilter(category);
-  const movie = useContentMovie();
+  const movie = useBannerMovie([category]);
   console.log(movie);
   const truncate = (string, n) => (string?.length > n ? `${string.substr(0, n - 1)}...` : string);
 
@@ -42,8 +41,18 @@ export default function Browse() {
           <Header.Frame>
             <Header.Group>
               <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
-              <Header.TextLink>Series</Header.TextLink>
-              <Header.TextLink>Films</Header.TextLink>
+              <Header.TextLink
+                active={category === 'TV' ? 'true' : 'false'}
+                onClick={() => setCategory('TV')}
+              >
+                Series
+              </Header.TextLink>
+              <Header.TextLink
+                active={category === 'Films' ? 'true' : 'false'}
+                onClick={() => setCategory('Films')}
+              >
+                Films
+              </Header.TextLink>
             </Header.Group>
 
             <Header.Group>
