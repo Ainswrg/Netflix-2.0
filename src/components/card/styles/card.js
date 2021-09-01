@@ -4,15 +4,15 @@ export const Title = styled.p`
   font-size: 24px;
   color: #e5e5e5;
   font-weight: bold;
-  margin-left: 56px;
-  margin-right: 56px;
+  margin-left: 36px;
+  margin-right: 36px;
   margin-top: 0;
 `;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
 
   > ${Title} {
     @media (max-width: 1000px) {
@@ -27,13 +27,15 @@ export const Container = styled.div`
 
 export const Group = styled.div`
   display: flex;
+  position: relative;
+  z-index: 2;
   flex-direction: ${({ flexDirection }) => (flexDirection === 'row' ? 'row' : 'column')};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
   ${({ margin }) => margin && `margin: ${margin}`};
 
   > ${Container}:first-of-type {
     @media (min-width: 1100px) {
-      margin-top: -100px;
+      margin-top: -80px;
     }
   }
 `;
@@ -63,9 +65,9 @@ export const Entities = styled.div`
   flex-direction: row;
   overflow-y: hidden;
   overflow-x: scroll;
-  /* align-items: center; */
-  padding: 15px 10px 5px;
-  height: ${({ isLargeRow }) => (isLargeRow ? '230px' : '90px')};
+  padding: 5px 10px 5px;
+  height: ${({ isLargeRow }) => (isLargeRow ? '320px' : '130px')};
+  align-items: center;
 
   &::-webkit-scrollbar {
     display: none;
@@ -82,16 +84,12 @@ export const Meta = styled.div`
 `;
 
 export const Image = styled.img`
-  /* max-height: 150px; */
+  height: auto;
   object-fit: contain;
-  margin-right: 10px;
-  /* width: 100%; */
-  width: 140px;
+  width: 190px;
+  background: red;
   transition: transform 450ms;
-  border: 0;
-  /* max-width: 305px; */
   cursor: pointer;
-  /* height: auto; */
   padding: 0;
   margin: 0;
 `;
@@ -99,18 +97,15 @@ export const Image = styled.img`
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
-  object-fit: cover;
+  object-fit: contain;
   margin-right: 10px;
-  max-width: 150px;
-  width: 100%;
-  max-height: 150px;
-  height: min-content;
+  height: fit-content;
   transition: transform 450ms;
-
 
   &:hover {
     transform: scale(1.15);
     z-index: 9999;
+    box-shadow: 0 0 5px #1b86f9;
   }
 
   @media (min-width: 1200px) {
@@ -121,7 +116,7 @@ export const Item = styled.div`
   }
 
   &:first-of-type {
-    margin-left: 46px;
+    margin-left: 16px;
 
     @media (max-width: 1000px) {
       margin-left: 30px;
@@ -151,17 +146,17 @@ export const FeatureText = styled.p`
 export const Feature = styled.div`
   display: flex;
   flex-direction: row;
-  background: url(${({ src }) => src});
-  background-size: contain;
-  position: relative;
-  height: 360px;
-  background-position-x: right;
+  background-image: url(${({ src }) => src});
   background-repeat: no-repeat;
-  background-color: black;
+  -webkit-background-size: cover;
+  background-size: cover;
+  position: relative;
+  background-position: 10% 15%;
+  height: 360px;
 
   @media (max-width: 1000px) {
     height: auto;
-    background-size: auto;
+    background-size: cover;
 
     ${Title} {
       font-size: 20px;
