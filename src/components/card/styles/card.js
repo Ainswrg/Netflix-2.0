@@ -192,6 +192,7 @@ export const Content = styled.div`
   margin: 56px;
   max-width: 500px;
   line-height: normal;
+  z-index: 2;
 
   @media (max-width: 1000px) {
     margin: 30px;
@@ -199,7 +200,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Maturity = styled.div`
+export const Rating = styled.div`
   background-color: ${({ rating }) => (rating >= 15 ? '#f44336' : '#2f9600')};
   border-radius: 15px;
   width: 28px;
@@ -210,4 +211,15 @@ export const Maturity = styled.div`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-right: 10px;
   font-size: 12px;
+`;
+
+export const Gradient = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
 `;
