@@ -3,17 +3,18 @@ import axios from '../lib/axios';
 
 export const useContentMovie = (fetchUrl) => {
   const [movies, setMovies] = useState([]);
+  const [isMounted, setIsMounted] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const request = await axios.get(fetchUrl);
-      const result = fetchUrl ? request?.data?.results : request?.data?.results[Math.floor(Math.random() * request?.data?.results?.length - 1 + 1)];
-
-      setMovies(result);
+      const result = request.data.results;
+      if (isMounted) setMovies(result);
       return request;
-    }
+    };
 
     fetchData();
+    return () => setIsMounted(false);
   }, [fetchUrl]);
 
   return movies;
