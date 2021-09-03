@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import movieTrailer from 'movie-trailer';
+import Fuse from 'fuse.js';
 
 import { Card, Header, Loading, Player } from '../components';
 import * as ROUTES from '../constants/routes';
@@ -41,7 +42,9 @@ export default function Browse() {
     if (trailerUrl) {
       setTrailerUrl('');
     } else {
-      movieTrailer(movieTarget?.title || movieTarget?.original_title || movieTarget?.name || movieTarget?.original_name || '')
+      movieTrailer(
+        movieTarget?.title || movieTarget?.original_title || movieTarget?.name || movieTarget?.original_name || ''
+      )
         .then((url) => {
           const urlParams = new URLSearchParams(new URL(url).search);
           setTrailerUrl(urlParams.get('v'));
@@ -49,6 +52,17 @@ export default function Browse() {
         .catch((error) => console.log(error));
     }
   };
+
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, { keys: ['overview', 'title', 'name'] });
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+
+    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(movieArray);
+    }
+  }, [searchTerm]);
 
   return (
     // eslint-disable-next-line no-nested-ternary
@@ -98,7 +112,7 @@ export default function Browse() {
 
         <Card.Group>
           {slideRows.map((categories) => (
-            <Card key={`${category}-${categories.title.toLowerCase()}`}>
+            <Card key={`${category}-${categories.title.toLowerCase()}`} fetchUrl={categories.fetchUrl}>
               <Card.Title>{categories.title}</Card.Title>
               <Card.Row
                 fetchUrl={categories.fetchUrl}
@@ -108,7 +122,7 @@ export default function Browse() {
               />
               <Card.Feature truncate={truncate}>
                 <Player>
-                  <Player.Button categories={categories} />
+                  <Player.Button />
                   <Player.Video trailerUrl={trailerUrl} />
                 </Player>
               </Card.Feature>
