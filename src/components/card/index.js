@@ -24,7 +24,7 @@ export const FeatureContext = createContext([]);
 
 const baseUrlImg = 'https://image.tmdb.org/t/p/original';
 
-export default function Card({ children, fetchUrl, ...props }) {
+export default function Card({ children, ...props }) {
   const [showFeature, setShowFeature] = useState(false);
   const [itemFeature, setItemFeature] = useState({});
 

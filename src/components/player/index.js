@@ -17,7 +17,7 @@ export default function Player({ children, ...props }) {
 
 Player.Video = function PlayerVideo({ trailerUrl, ...props }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
-
+  console.log(trailerUrl);
   const opts = {
     height: '480',
     width: '100%',
