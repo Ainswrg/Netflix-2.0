@@ -37,7 +37,7 @@ Player.Video = function PlayerVideo({ trailerUrl, ...props }) {
     : null;
 };
 
-Player.Button = function PlayerButton({ categories, ...props }) {
+Player.Button = function PlayerButton({ ...props }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
 
   return (
