@@ -1,17 +1,20 @@
+/* eslint-disable react/jsx-curly-brace-presence */
 import React from 'react';
 import { Footer } from '../components';
 
 export function FooterContainer() {
   return (
     <Footer>
-      <Footer.Title>Question? Call<Footer.Link href="#">8-800-100-9668$</Footer.Link></Footer.Title>
+      <Footer.Title>
+        Questions? Call -&nbsp;<Footer.Link href="#">8-800-100-9668</Footer.Link>
+      </Footer.Title>
       <Footer.Break />
       <Footer.Row>
         <Footer.Column>
           <Footer.Link href="#">FAQ</Footer.Link>
           <Footer.Link href="#">Investor Relations</Footer.Link>
           <Footer.Link href="#">Ways to Watch</Footer.Link>
-          <Footer.Link href="#">Coporate Information</Footer.Link>
+          <Footer.Link href="#">Corporate Information</Footer.Link>
           <Footer.Link href="#">Netflix Originals</Footer.Link>
         </Footer.Column>
         {}
@@ -33,7 +36,7 @@ export function FooterContainer() {
           <Footer.Link href="#">Media Centre</Footer.Link>
           <Footer.Link href="#">Buy Gift Cards</Footer.Link>
           <Footer.Link href="#">Cookie Preferences</Footer.Link>
-          <Footer.Link href="#">Legel Notices</Footer.Link>
+          <Footer.Link href="#">Legal Notices</Footer.Link>
         </Footer.Column>
       </Footer.Row>
       <Footer.Break />

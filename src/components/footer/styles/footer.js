@@ -28,17 +28,18 @@ export const Row = styled.div`
   }
 `;
 
-export const Link = styled.div`
+export const Link = styled.a`
   color: #757575;
   margin-bottom: 20px;
-  font-size: 13px;
+  font-size: 16px;
   text-decoration: none;
 `;
 
-export const Title = styled.div`
+export const Title = styled.p`
   font-size: 16px;
   color: #757575;
   margin-bottom: 40px;
+  display: flex;
 `;
 
 export const Text = styled.div`
