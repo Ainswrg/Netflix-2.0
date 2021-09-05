@@ -7,12 +7,13 @@ export const Background = styled.div`
   background: url(${({ src }) => (src ? `https://image.tmdb.org/t/p/original/${src}` : '../images/misc/home-bg.jpg')});
   background-position: center center no-repeat;
   background-size: cover;
-  height: 698px;
-  /* object-fit: contain; */
+  height: 896px;
+  position: relative;
+  z-index: 2;
 
   @media (max-width: 1100px) {
-    height: 200px;
-    ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none`}
+    height: ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `200px`};
+    background: ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `none`};
   }
 `;
 
@@ -236,10 +237,14 @@ export const Gradient = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: -1;
+  height: 896px;
+  background: rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.5) 100%);
+
+  @media (max-width: 1100px) {
+    height: ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `0px`};
+  }
 `;
 
 export const Feature = styled(Container)`
@@ -273,11 +278,10 @@ export const Text = styled.p`
 
 export const FadeBottom = styled.div`
   position: absolute;
-  bottom: 160px;
+  bottom: 0px;
   left: 0px;
   height: 7.4rem;
   width: 100%;
   z-index: 1;
   background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
-  /* background: red; */
 `;

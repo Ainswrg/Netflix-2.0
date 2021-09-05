@@ -101,6 +101,7 @@ export default function Browse() {
                 </Header.Dropdown>
               </Header.Profile>
             </Header.Group>
+            <Header.Gradient dontShowOnSmallViewPort />
           </Header.Frame>
           <Header.Feature>
             <Header.FeatureCallOut>Watch {movie?.title || movie?.name || movie?.original_name}</Header.FeatureCallOut>

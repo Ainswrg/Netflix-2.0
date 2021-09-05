@@ -34,5 +34,5 @@ Jumbotron.Video = function JumbotronVideo({ ...props }) {
 };
 
 Jumbotron.Flex = function JumbotronFlex({ children, ...props }) {
-  return <Flex {...props}> { children } </Flex>;
+  return <Flex {...props}> {children} </Flex>;
 };

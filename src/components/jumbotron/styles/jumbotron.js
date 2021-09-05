@@ -6,10 +6,6 @@ export const Item = styled.div`
   padding: 50px 5%;
   color: white;
   overflow: hidden;
-
-  &:first-of-type{
-    border: none;
-  }
 `;
 
 export const Inner = styled.div`
