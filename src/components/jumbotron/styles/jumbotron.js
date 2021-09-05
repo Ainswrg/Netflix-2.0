@@ -61,7 +61,6 @@ export const Video = styled.video`
   width: 100%;
   grid-column: 2/2;
   grid-row: 1/2;
-  z-index: 1;
   margin: 0 auto;
   height: ${({ height }) => height};
   top: ${({ top }) => top};
@@ -71,7 +70,7 @@ export const Video = styled.video`
 export const Image = styled.img`
   grid-column: 2/2;
   grid-row: 1/2;
-  z-index: 2;
+  z-index: 1;
 `;
 
 export const Container = styled.div`

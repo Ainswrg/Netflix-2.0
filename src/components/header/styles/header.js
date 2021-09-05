@@ -28,7 +28,7 @@ export const Navbar = styled.div`
   left: 0px;
   width: 100%;
   height: 100px;
-  z-index: 3;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;

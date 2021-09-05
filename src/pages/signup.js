@@ -37,7 +37,6 @@ const SignUp = forwardRef((props, ref) => {
 
   const history = useHistory();
   const onSubmit = (data) => {
-    console.log(data);
     signUp(auth, data.email, data.password)
       .then((userCredential) => {
         // Signed in
