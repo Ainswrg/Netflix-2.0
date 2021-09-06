@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> renders the <Card />  1`] = `
+<div
+  class="card__Group-sc-s87lnr-2 bpphnn"
+>
+  <div
+    class="card__Container-sc-s87lnr-1 jqEfa"
+  >
+    <p
+      class="card__Title-sc-s87lnr-0 eldhCL"
+    >
+      Trending now
+    </p>
+    <div
+      class="card__Entities-sc-s87lnr-5 dNLWMY"
+    />
+  </div>
+  <div
+    class="card__Container-sc-s87lnr-1 jqEfa"
+  >
+    <p
+      class="card__Title-sc-s87lnr-0 eldhCL"
+    >
+      Action Movies
+    </p>
+    <div
+      class="card__Entities-sc-s87lnr-5 eWDEcb"
+    />
+  </div>
+</div>
+`;
