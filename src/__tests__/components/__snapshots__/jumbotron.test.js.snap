@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Jumbotron /> renders the <Jumbotron /> with populated data 1`] = `
+<div
+  class="jumbotron__Container-sc-es77m8-8 eTAjHY"
+>
+  <div
+    class="jumbotron__Item-sc-es77m8-0 bHzKvU"
+  >
+    <div
+      class="jumbotron__Inner-sc-es77m8-1 dgnbVM"
+      direction="row"
+    >
+       
+      <div
+        class="jumbotron__Pane-sc-es77m8-2 jwjVei"
+      >
+        <h1
+          class="jumbotron__Title-sc-es77m8-3 bGkROJ"
+        >
+           
+          Enjoy on your TV.
+           
+        </h1>
+        <h2
+          class="jumbotron__SubTitle-sc-es77m8-4 bbFjFQ"
+        >
+           
+          Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.
+           
+        </h2>
+      </div>
+      <div
+        class="jumbotron__Pane-sc-es77m8-2 jwjVei"
+      >
+        <div
+          class="jumbotron__Flex-sc-es77m8-5 njmJR"
+        >
+           
+          <img
+            alt="TV"
+            class="jumbotron__Image-sc-es77m8-7 gsHddh"
+            data-testid="1-jumbo-image"
+            src="/images/misc/tv.png"
+          />
+          <video
+            autoplay=""
+            class="jumbotron__Video-sc-es77m8-6 CuWfp"
+            height="55%"
+            loop=""
+            playsinline=""
+            src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+            type="video/mp4"
+          />
+           
+        </div>
+      </div>
+       
+    </div>
+  </div>
+  <div
+    class="jumbotron__Item-sc-es77m8-0 bHzKvU"
+  >
+    <div
+      class="jumbotron__Inner-sc-es77m8-1 dgnbVM"
+      direction="row"
+    >
+       
+      <div
+        class="jumbotron__Pane-sc-es77m8-2 jwjVei"
+      >
+        <h1
+          class="jumbotron__Title-sc-es77m8-3 bGkROJ"
+        >
+           
+          Download your programmes to watch on the go.
+           
+        </h1>
+        <h2
+          class="jumbotron__SubTitle-sc-es77m8-4 bbFjFQ"
+        >
+           
+          Save your data and watch all your favourites offline.
+           
+        </h2>
+      </div>
+      <div
+        class="jumbotron__Pane-sc-es77m8-2 jwjVei"
+      >
+        <div
+          class="jumbotron__Flex-sc-es77m8-5 njmJR"
+        >
+           
+          <img
+            alt="Watch on mobile"
+            class="jumbotron__Image-sc-es77m8-7 gsHddh"
+            data-testid="2-jumbo-image"
+            src="/images/misc/11.jpg"
+          />
+          <video
+            autoplay=""
+            class="jumbotron__Video-sc-es77m8-6 brqttF"
+            loop=""
+            playsinline=""
+            type="video/mp4"
+          />
+           
+        </div>
+      </div>
+       
+    </div>
+  </div>
+  <div
+    class="jumbotron__Item-sc-es77m8-0 bHzKvU"
+  >
+    <div
+      class="jumbotron__Inner-sc-es77m8-1 dgnbVM"
+      direction="row"
+    >
+       
+      <div
+        class="jumbotron__Pane-sc-es77m8-2 jwjVei"
+      >
+        <h1
+          class="jumbotron__Title-sc-es77m8-3 bGkROJ"
+        >
+           
+          Watch everywhere.
+           
+        </h1>
+        <h2
+          class="jumbotron__SubTitle-sc-es77m8-4 bbFjFQ"
+        >
+           
+          Stream unlimited films and TV programmes on your phone, tablet, laptop and TV without paying more.
+           
+        </h2>
+      </div>
+      <div
+        class="jumbotron__Pane-sc-es77m8-2 jwjVei"
+      >
+        <div
+          class="jumbotron__Flex-sc-es77m8-5 njmJR"
+        >
+           
+          <img
+            alt="Money Heist on Netflix"
+            class="jumbotron__Image-sc-es77m8-7 gsHddh"
+            data-testid="3-jumbo-image"
+            src="/images/misc/device-pile.png"
+          />
+          <video
+            autoplay=""
+            class="jumbotron__Video-sc-es77m8-6 juJjcb"
+            height="49%"
+            loop=""
+            playsinline=""
+            src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
+            type="video/mp4"
+          />
+           
+        </div>
+      </div>
+       
+    </div>
+  </div>
+  <div
+    class="jumbotron__Item-sc-es77m8-0 bHzKvU"
+  >
+    <div
+      class="jumbotron__Inner-sc-es77m8-1 dgnbVM"
+      direction="row"
+    >
+       
+      <div
+        class="jumbotron__Pane-sc-es77m8-2 jwjVei"
+      >
+        <h1
+          class="jumbotron__Title-sc-es77m8-3 bGkROJ"
+        >
+           
+          Create profiles for kids.
+           
+        </h1>
+        <h2
+          class="jumbotron__SubTitle-sc-es77m8-4 bbFjFQ"
+        >
+           
+          Send kids on adventures with their favorite characters in a space made just for them—free with your membership.
+           
+        </h2>
+      </div>
+      <div
+        class="jumbotron__Pane-sc-es77m8-2 jwjVei"
+      >
+        <div
+          class="jumbotron__Flex-sc-es77m8-5 njmJR"
+        >
+           
+          <img
+            alt="Money Heist on Netflix"
+            class="jumbotron__Image-sc-es77m8-7 gsHddh"
+            data-testid="4-jumbo-image"
+            src="/images/misc/kids.png"
+          />
+          <video
+            autoplay=""
+            class="jumbotron__Video-sc-es77m8-6 brqttF"
+            loop=""
+            playsinline=""
+            type="video/mp4"
+          />
+           
+        </div>
+      </div>
+       
+    </div>
+  </div>
+</div>
+`;
