@@ -70,6 +70,7 @@ React.memo(Card.Row = function CardRow ({ fetchUrl, handleClick, isLargeRow, tru
             <Image
               src={`${baseUrlImg}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
               isLargeRow={isLargeRow}
+              alt="bg"
             />
             <Meta>
               <SubTitle>{movie.title}</SubTitle>

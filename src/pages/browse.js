@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import movieTrailer from 'movie-trailer';
 import Fuse from 'fuse.js';
 

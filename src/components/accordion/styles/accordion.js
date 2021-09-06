@@ -88,12 +88,12 @@ export const Title = styled.h1`
 
 export const Item = styled.div`
   color: white;
+  margin: 0 auto;
   margin-bottom: 10px;
-  margin: 1px auto;
   max-width: 670px;
   width: 100%;
 
   &:first-of-type {
-    margin-top: 3em;
+    margin-top: 3rem;
   }
 `;
