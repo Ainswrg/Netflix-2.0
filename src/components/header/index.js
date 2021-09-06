@@ -24,7 +24,7 @@ import {
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...props }) {
-  return bg ? <Background {...props}>{children}</Background> : children;
+  return bg ? <Background {...props} data-testid="header-bg">{children}</Background> : children;
 }
 
 Header.Frame = function HeaderFrame({ children, ...props }) {
@@ -40,7 +40,7 @@ Header.SearchTerm = function HeaderSearch({ searchTerm, setSearchTerm, ...props 
 
   return (
     <Search {...props}>
-      <SearchIcon onClick={() => setSearchActive(!searchActive)}>
+      <SearchIcon onClick={() => setSearchActive(!searchActive)} data-testid="search-click">
         <img src="/images/icons/search.png" alt="search" />
       </SearchIcon>
       <SearchInput
@@ -48,6 +48,7 @@ Header.SearchTerm = function HeaderSearch({ searchTerm, setSearchTerm, ...props 
         onChange={({ target }) => setSearchTerm(target.value)}
         placeholder="Search films and series"
         active={searchActive}
+        data-testid="search-input"
       />
     </Search>
   );

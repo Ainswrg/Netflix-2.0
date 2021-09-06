@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders the basic <Header /> with a background 1`] = `
+<div
+  class="header__Background-sc-djltcn-0 hjlDqR"
+  data-testid="header-bg"
+>
+  <div
+    class="header__Container-sc-djltcn-3 WzXxO"
+  >
+    <a
+      alt="Netflix"
+      href=""
+      src="/logo.svg"
+    >
+      <img
+        alt="Netflix"
+        class="header__Logo-sc-djltcn-14 dolqvt"
+        src="/logo.svg"
+      />
+    </a>
+    <p
+      class="header__Link-sc-djltcn-7 eEoSsa"
+    >
+      Hello I am a link!
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<Header /> renders the full <Header> with a background 1`] = `
+<div
+  class="header__Background-sc-djltcn-0 jmcqiw"
+  data-testid="header-bg"
+  src="joker1"
+>
+  <div
+    class="header__Container-sc-djltcn-3 WzXxO"
+  >
+    <div
+      class="header__Group-sc-djltcn-1 kIQRcC"
+    >
+      <a
+        alt="Netflix"
+        href=""
+        src="/images/logo.svg"
+      >
+        <img
+          alt="Netflix"
+          class="header__Logo-sc-djltcn-14 dolqvt"
+          src="/images/logo.svg"
+        />
+      </a>
+      <p
+        class="header__Link-sc-djltcn-7 cAhnPi"
+      >
+        TV
+      </p>
+      <p
+        class="header__Link-sc-djltcn-7 cAhnPi"
+      >
+        Films
+      </p>
+    </div>
+    <div
+      class="header__Group-sc-djltcn-1 kIQRcC"
+    >
+      <div
+        class="header__Search-sc-djltcn-9 kvsScc"
+      >
+        <button
+          class="header__SearchIcon-sc-djltcn-10 frtWqC"
+          data-testid="search-click"
+        >
+          <img
+            alt="search"
+            src="/images/icons/search.png"
+          />
+        </button>
+        <input
+          class="header__SearchInput-sc-djltcn-12 fixIXV"
+          data-testid="search-input"
+          placeholder="Search films and series"
+          value="Joker"
+        />
+      </div>
+      <div
+        class="header__Profile-sc-djltcn-13 ETygv"
+      >
+        <button
+          class="header__Picture-sc-djltcn-6 iTQgtG"
+          src="images/users//images/jaslan.png.png"
+        />
+        <div
+          class="header__Dropdown-sc-djltcn-8 bjXEpz"
+        >
+          <div
+            class="header__Group-sc-djltcn-1 kIQRcC"
+          >
+            <button
+              class="header__Picture-sc-djltcn-6 iTQgtG"
+              src="images/users//images/jaslan.png.png"
+            />
+            <p
+              class="header__Link-sc-djltcn-7 cAhnPi"
+            >
+              Jaslan D
+            </p>
+          </div>
+          <div
+            class="header__Group-sc-djltcn-1 kIQRcC"
+          >
+            <p
+              class="header__Link-sc-djltcn-7 cAhnPi"
+            >
+              Sign out
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="header__Container-sc-djltcn-3 header__Feature-sc-djltcn-16 WzXxO jZLSvy"
+  >
+    <div
+      class="header__FeatureCallOut-sc-djltcn-17 mDDgt"
+    >
+      Watch Now
+    </div>
+    <p
+      class="header__Text-sc-djltcn-18 iHYqNT"
+    >
+      Forever alone in a crowd...
+    </p>
+    <button
+      class="header__PlayButton-sc-djltcn-11 lokgan"
+    >
+      Play
+    </button>
+  </div>
+</div>
+`;
