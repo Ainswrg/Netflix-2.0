@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
@@ -50,12 +51,11 @@ const SignIn = React.forwardRef((props, ref) => {
         <Form>
           <Form.Title>Sign In</Form.Title>
           {/* eslint-disable */}
-            {(errors.firstName && <Form.Error>{errors.email?.firstName}</Form.Error>) ||
+          {(errors.firstName && <Form.Error>{errors.email?.firstName}</Form.Error>) ||
             (errors.email && <Form.Error>{errors.email?.message}</Form.Error>) ||
             (errors.password && <Form.Error>{errors.password?.message}</Form.Error>) ||
             (error && <Form.Error>{error}</Form.Error>)}
-          {/* eslint-enable */}
-          ;
+          {/* eslint-enable */};
           <Form.Base onSubmit={handleSubmit(onSubmit)}>
             <Controller
               render={({ field }) => <Form.Input {...field} placeholder="Email address" type="email" ref={ref} />}
@@ -71,7 +71,9 @@ const SignIn = React.forwardRef((props, ref) => {
               rules={{ required: true }}
               defaultValue=""
             />
-            <Form.Submit type="submit">Sign In</Form.Submit>
+            <Form.Submit role="button" type="submit">
+              Sign In
+            </Form.Submit>
           </Form.Base>
           <Form.Text>
             New to Netflix? <Form.Link to="/signup">Sign Up Now!</Form.Link>
