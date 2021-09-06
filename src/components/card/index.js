@@ -73,7 +73,7 @@ React.memo(Card.Row = function CardRow ({ fetchUrl, handleClick, isLargeRow, tru
               alt="bg"
             />
             <Meta>
-              <SubTitle>{movie.title}</SubTitle>
+              <SubTitle>{movie.title || movie.name}</SubTitle>
               <Text>{truncate(movie.overview, 150)}</Text>
             </Meta>
           </Card.Item>
