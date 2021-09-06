@@ -13,52 +13,56 @@ exports[`<Accordion /> opens and closes the <Accordion /> component 1`] = `
       Frequently Asked Questions
     </h1>
     <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
+      class="accordion__Frame-sc-l3iym9-4 kMbVuT"
     >
       <div
-        class="accordion__Header-sc-l3iym9-2 cTNkLK"
+        class="accordion__Item-sc-l3iym9-6 fWxYPy"
       >
-        What is Netflix?
+        <div
+          class="accordion__Header-sc-l3iym9-2 cTNkLK"
+        >
+          What is Netflix?
+        </div>
+      </div>
+      <div
+        class="accordion__Item-sc-l3iym9-6 fWxYPy"
+      >
+        <div
+          class="accordion__Header-sc-l3iym9-2 cTNkLK"
+        >
+          How much does Netflix cost?
+        </div>
+      </div>
+      <div
+        class="accordion__Item-sc-l3iym9-6 fWxYPy"
+      >
+        <div
+          class="accordion__Header-sc-l3iym9-2 cTNkLK"
+        >
+          Where can I watch?
+        </div>
+      </div>
+      <div
+        class="accordion__Item-sc-l3iym9-6 fWxYPy"
+      >
+        <div
+          class="accordion__Header-sc-l3iym9-2 cTNkLK"
+        >
+          How do I cancel?
+        </div>
+      </div>
+      <div
+        class="accordion__Item-sc-l3iym9-6 fWxYPy"
+      >
+        <div
+          class="accordion__Header-sc-l3iym9-2 cTNkLK"
+        >
+          What can I watch on Netflix?
+        </div>
       </div>
     </div>
     <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
-    >
-      <div
-        class="accordion__Header-sc-l3iym9-2 cTNkLK"
-      >
-        How much does Netflix cost?
-      </div>
-    </div>
-    <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
-    >
-      <div
-        class="accordion__Header-sc-l3iym9-2 cTNkLK"
-      >
-        Where can I watch?
-      </div>
-    </div>
-    <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
-    >
-      <div
-        class="accordion__Header-sc-l3iym9-2 cTNkLK"
-      >
-        How do I cancel?
-      </div>
-    </div>
-    <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
-    >
-      <div
-        class="accordion__Header-sc-l3iym9-2 cTNkLK"
-      >
-        What can I watch on Netflix?
-      </div>
-    </div>
-    <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
+      class="accordion__Item-sc-l3iym9-6 fWxYPy"
     />
   </div>
 </div>
@@ -77,7 +81,7 @@ exports[`<Accordion /> renders the <Accordion /> 1`] = `
       Frequently Asked Questions
     </h1>
     <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
+      class="accordion__Item-sc-l3iym9-6 fWxYPy"
     >
       <div
         class="accordion__Header-sc-l3iym9-2 cTNkLK"
@@ -86,7 +90,7 @@ exports[`<Accordion /> renders the <Accordion /> 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
+      class="accordion__Item-sc-l3iym9-6 fWxYPy"
     >
       <div
         class="accordion__Header-sc-l3iym9-2 cTNkLK"
@@ -95,7 +99,7 @@ exports[`<Accordion /> renders the <Accordion /> 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
+      class="accordion__Item-sc-l3iym9-6 fWxYPy"
     >
       <div
         class="accordion__Header-sc-l3iym9-2 cTNkLK"
@@ -104,7 +108,7 @@ exports[`<Accordion /> renders the <Accordion /> 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
+      class="accordion__Item-sc-l3iym9-6 fWxYPy"
     >
       <div
         class="accordion__Header-sc-l3iym9-2 cTNkLK"
@@ -113,7 +117,7 @@ exports[`<Accordion /> renders the <Accordion /> 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
+      class="accordion__Item-sc-l3iym9-6 fWxYPy"
     >
       <div
         class="accordion__Header-sc-l3iym9-2 cTNkLK"
@@ -122,7 +126,7 @@ exports[`<Accordion /> renders the <Accordion /> 1`] = `
       </div>
     </div>
     <div
-      class="accordion__Item-sc-l3iym9-6 jWCnop"
+      class="accordion__Item-sc-l3iym9-6 fWxYPy"
     />
   </div>
 </div>
