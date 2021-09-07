@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -20,7 +21,7 @@ const schema = yup.object().shape({
 });
 
 const SignIn = React.forwardRef((props, ref) => {
-  const { auth, signIn } = useContext(FirebaseContext);
+  const { auth } = useContext(FirebaseContext);
   const [error, setError] = useState('');
   const {
     formState: { errors },
@@ -31,7 +32,7 @@ const SignIn = React.forwardRef((props, ref) => {
 
   const history = useHistory();
   const onSubmit = (data) => {
-    signIn(auth, data.email, data.password)
+    signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         // eslint-disable-next-line prefer-destructuring
         const user = userCredential.user;
@@ -54,7 +55,7 @@ const SignIn = React.forwardRef((props, ref) => {
           {(errors.firstName && <Form.Error>{errors.email?.firstName}</Form.Error>) ||
             (errors.email && <Form.Error>{errors.email?.message}</Form.Error>) ||
             (errors.password && <Form.Error>{errors.password?.message}</Form.Error>) ||
-            (error && <Form.Error>{error}</Form.Error>)}
+            (error && <Form.Error data-testid="error">{error}</Form.Error>)}
           {/* eslint-enable */};
           <Form.Base onSubmit={handleSubmit(onSubmit)}>
             <Controller
@@ -71,7 +72,7 @@ const SignIn = React.forwardRef((props, ref) => {
               rules={{ required: true }}
               defaultValue=""
             />
-            <Form.Submit role="button" type="submit">
+            <Form.Submit role="button" type="submit" data-testid="sign-in">
               Sign In
             </Form.Submit>
           </Form.Base>

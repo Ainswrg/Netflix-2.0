@@ -91,7 +91,7 @@ const SignUp = forwardRef((props, ref) => {
               rules={{ required: true }}
               defaultValue=""
             />
-            <Form.Submit type="submit">Sign Up</Form.Submit>
+            <Form.Submit type="submit" data-testid="sign-up">Sign Up</Form.Submit>
           </Form.Base>
           <Form.Text>
             Already a user? <Form.Link to="/signin">Sign in now.</Form.Link>
