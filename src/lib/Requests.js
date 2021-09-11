@@ -1,5 +1,5 @@
 // Typically we would store in {process.env.API_KEY}
-const API_KEY = '38ffc00a44d0dc17b34ba82e0252cbab';
+export const API_KEY = '38ffc00a44d0dc17b34ba82e0252cbab';
 
 export const requestsFilms = {
   fetchTrending: `/trending/movie/week?api_key=${API_KEY}&language=en-US`,

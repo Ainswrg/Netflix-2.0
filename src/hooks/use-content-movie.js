@@ -4,7 +4,6 @@ import axios from '../lib/axios';
 export const useContentMovie = (fetchUrl) => {
   const [movies, setMovies] = useState([]);
   const [isMounted, setIsMounted] = useState(true);
-
   useEffect(() => {
     const fetchData = async () => {
       const request = await axios.get(fetchUrl);

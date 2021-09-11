@@ -1,8 +1,8 @@
-import { requestsFilms, requestsTV } from '../lib/Requests';
+import { API_KEY, requestsFilms, requestsTV } from '../lib/Requests';
 
 // const requests = requestsFilms;
 
-export const selectionFilter = (target) => {
+export const selectionFilter = ({ category, searchTerm, currentPage }) => {
   let result = [];
 
   const films = [
@@ -18,7 +18,11 @@ export const selectionFilter = (target) => {
   ];
 
   const TV = [
-    { title: 'Netflix originals', fetchUrl: requestsTV.fetchNetflixOriginals, isLargeRow: true },
+    {
+      title: 'Netflix originals',
+      fetchUrl: requestsTV.fetchNetflixOriginals,
+      isLargeRow: true,
+    },
     { title: 'Trending now', fetchUrl: requestsTV.fetchTrending },
     { title: 'Top Rated', fetchUrl: requestsTV.fetchTopRated },
     { title: 'Action & Adventure', fetchUrl: requestsTV.fetchActionTV },
@@ -28,13 +32,24 @@ export const selectionFilter = (target) => {
     { title: 'Crime', fetchUrl: requestsTV.fetchCrimeTV },
     { title: 'Documentary', fetchUrl: requestsTV.fetchDocumentaries },
   ];
-
-  if (target === 'Films') {
+  const Search = [
+    {
+      title: 'Search',
+      fetchUrl: `search/movie?api_key=${API_KEY}&query=${searchTerm}&language=en-US&page=${currentPage}`,
+      isLargeRow: true,
+    },
+  ];
+  if (category === 'Films') {
     result = films;
   }
 
-  if (target === 'TV') {
+  if (category === 'TV') {
     result = TV;
   }
+
+  if (category === 'Search') {
+    result = Search;
+  }
+
   return result;
 };

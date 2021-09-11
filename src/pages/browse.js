@@ -10,6 +10,8 @@ import { FirebaseContext } from '../context/firebase';
 import { useBannerMovie } from '../hooks';
 import logo from '../logo.svg';
 import { selectionFilter } from '../utils/selection-filter';
+import { API_KEY } from '../lib/Requests';
+import axios from '../lib/axios';
 
 export default function Browse() {
   const [category, setCategory] = useState('Films');
@@ -18,12 +20,15 @@ export default function Browse() {
   const [searchTerm, setSearchTerm] = useState('');
   const [slideRows, setSlideRows] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState('');
+  const [movies, setMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);
 
   const { auth, signOut } = useContext(FirebaseContext);
 
   const user = auth.currentUser || {};
 
-  const movieArray = selectionFilter(category);
+  const movieArray = selectionFilter({ category, searchTerm, currentPage });
   const movie = useBannerMovie([category]);
 
   useEffect(() => {
@@ -43,7 +48,11 @@ export default function Browse() {
       setTrailerUrl('');
     } else {
       movieTrailer(
-        movieTarget?.title || movieTarget?.original_title || movieTarget?.name || movieTarget?.original_name || ''
+        movieTarget?.title
+        || movieTarget?.original_title
+        || movieTarget?.name
+        || movieTarget?.original_name
+        || ''
       )
         .then((url) => {
           const urlParams = new URLSearchParams(new URL(url).search);
@@ -53,14 +62,28 @@ export default function Browse() {
     }
   };
 
-  useEffect(() => {
-    const fuse = new Fuse(slideRows, { keys: ['overview', 'title', 'name'] });
-    const results = fuse.search(searchTerm).map(({ item }) => item);
+  const handleSubmit = () => {
+    const fetchData = async () => {
+      const request = await axios.get(
+        `search/movie?api_key=${API_KEY}&query=${searchTerm}&language=en-US&page=${currentPage}`
+      );
+      // eslint-disable-next-line prefer-destructuring
+      const data = request.data;
+      setMovies([...data.results]);
+      setTotalResults(data.total_results);
+    };
+    fetchData();
+  };
 
-    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
-      setSlideRows(results);
-    } else {
+  useEffect(() => {
+    const fuse = new Fuse(movies, { keys: ['overview', 'title', 'name'] });
+    handleSubmit();
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+    if (movies.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setCategory('Search');
       setSlideRows(movieArray);
+    } else {
+      setCategory('Films');
     }
   }, [searchTerm]);
 
@@ -74,17 +97,26 @@ export default function Browse() {
           <Header.Frame>
             <Header.Group>
               <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
-              <Header.TextLink active={category === 'TV' ? 'true' : 'false'} onClick={() => setCategory('TV')}>
+              <Header.TextLink
+                active={category === 'TV' ? 'true' : 'false'}
+                onClick={() => setCategory('TV')}
+              >
                 Series
               </Header.TextLink>
-              <Header.TextLink active={category === 'Films' ? 'true' : 'false'} onClick={() => setCategory('Films')}>
+              <Header.TextLink
+                active={category === 'Films' ? 'true' : 'false'}
+                onClick={() => setCategory('Films')}
+              >
                 Films
               </Header.TextLink>
             </Header.Group>
 
             <Header.Group>
               <Header.Group>
-                <Header.SearchTerm searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                <Header.SearchTerm
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                />
               </Header.Group>
               <Header.Profile>
                 <Header.Picture src={user.photoURL} />
@@ -96,7 +128,9 @@ export default function Browse() {
                   </Header.Group>
 
                   <Header.Group>
-                    <Header.TextLink onClick={() => signOut(auth)}>Sign out</Header.TextLink>
+                    <Header.TextLink onClick={() => signOut(auth)}>
+                      Sign out
+                    </Header.TextLink>
                   </Header.Group>
                 </Header.Dropdown>
               </Header.Profile>
@@ -104,7 +138,9 @@ export default function Browse() {
             <Header.Gradient dontShowOnSmallViewPort />
           </Header.Frame>
           <Header.Feature>
-            <Header.FeatureCallOut>Watch {movie?.title || movie?.name || movie?.original_name}</Header.FeatureCallOut>
+            <Header.FeatureCallOut>
+              Watch {movie?.title || movie?.name || movie?.original_name}
+            </Header.FeatureCallOut>
             <Header.Text>{truncate(movie?.overview, 150)}</Header.Text>
             <Header.PlayButton>Play</Header.PlayButton>
           </Header.Feature>
@@ -113,7 +149,10 @@ export default function Browse() {
 
         <Card.Group>
           {slideRows.map((categories) => (
-            <Card key={`${category}-${categories.title.toLowerCase()}`} fetchUrl={categories.fetchUrl}>
+            <Card
+              key={`${category}-${categories.title.toLowerCase()}`}
+              fetchUrl={categories.fetchUrl}
+            >
               <Card.Title>{categories.title}</Card.Title>
               <Card.Row
                 fetchUrl={categories.fetchUrl}

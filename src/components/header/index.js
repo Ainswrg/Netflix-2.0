@@ -35,12 +35,17 @@ Header.Group = function HeaderGroup({ children, ...props }) {
   return <Group {...props}>{children}</Group>;
 };
 
-Header.SearchTerm = function HeaderSearch({ searchTerm, setSearchTerm, ...props }) {
+Header.SearchTerm = function HeaderSearch({ searchTerm, setSearchTerm, setCategory, ...props }) {
   const [searchActive, setSearchActive] = useState(false);
 
   return (
     <Search {...props}>
-      <SearchIcon onClick={() => setSearchActive(!searchActive)} data-testid="search-click">
+      <SearchIcon
+        onClick={() => {
+          setSearchActive(!searchActive);
+        }}
+        data-testid="search-click"
+      >
         <img src="/images/icons/search.png" alt="search" />
       </SearchIcon>
       <SearchInput
